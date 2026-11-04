@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lista de tareas que guarda tus tareas en el navegador." />
+  <title>Mis Tareas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Mis Tareas</h1>
+      <p class="app__subtitle">Organiza tu día. Tus tareas se guardan en este navegador.</p>
+    </header>
+
+    <form id="task-form" class="task-form" autocomplete="off">
+      <input
+        id="task-input"
+        class="task-form__input"
+        type="text"
+        name="task"
+        placeholder="¿Qué necesitas hacer?"
+        aria-label="Nueva tarea"
+        maxlength="200"
+        required
+      />
+      <button class="task-form__button" type="submit" aria-label="Agregar tarea">
+        <span aria-hidden="true">+</span> Agregar
+      </button>
+    </form>
+
+    <section class="filters" aria-label="Filtros de tareas">
+      <div class="filters__group" role="tablist" aria-label="Filtrar tareas">
+        <button class="filters__btn is-active" data-filter="all" role="tab" aria-selected="true">Todas</button>
+        <button class="filters__btn" data-filter="active" role="tab" aria-selected="false">Pendientes</button>
+        <button class="filters__btn" data-filter="completed" role="tab" aria-selected="false">Completadas</button>
+      </div>
+      <button id="clear-completed" class="filters__clear" type="button">Limpiar completadas</button>
+    </section>
+
+    <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+    <p id="empty-state" class="empty-state" hidden>
+      No hay tareas aquí. ¡Agrega la primera! 🎯
+    </p>
+
+    <footer class="app__footer">
+      <span id="task-count" class="app__count">0 tareas</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
